@@ -1,0 +1,370 @@
+.appmenutop {
+    margin-top: 10px;
+}
+.appmenutop div {
+    float: left;
+}
+.appmenutop a {
+    color: #AFAFAF;
+    display: block;
+    padding: 12px 5px 0 25px;
+    text-decoration: none;
+    text-shadow: 0 1px #222222;
+}
+.appmenutop a:hover {
+    color: #FFFFFF;
+}
+a[title^="add"] {
+    background: url("/static/images/add_aplication.png") no-repeat scroll left bottom transparent;
+}
+a[title^="view"] {
+    background: url("/static/images/view.png") no-repeat scroll left bottom transparent;
+}
+a[title^="per"] {
+    background: url("/static/images/update.png") no-repeat scroll left bottom transparent;
+}
+.appmenutop div span {
+    background: url("/static/images/app_de_menu_bg.png") no-repeat scroll left top transparent;
+    display: block;
+    float: left;
+    height: 40px;
+    padding-left: 10px;
+    width: auto;
+}
+.righta {
+    background-position: right center !important;
+    padding-left: 0 !important;
+    width: 10px !important;
+}
+.rt {
+    margin-left: 20px;
+}
+.appcontent {
+    float: left;
+    width: 737px;
+}
+.appcontent_wide {
+    float: left;
+    width: 960px;
+}
+.appitem {
+    background: url("/static/images/appitembg.png") no-repeat scroll 0 0 transparent;
+    height: 145px;
+    margin-top: 20px;
+    position: relative;
+}
+#appitemtop {
+    margin-top: 20px;
+}
+.applogo {
+    background: url("/static/images/applogo.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    left: 33px;
+    padding: 6px;
+    position: absolute;
+    top: 25px;
+}
+.applogo img {
+    display: block;
+    height: 48px;
+    width: 48px;
+}
+.applogo a {
+    background: url("/static/images/appdownload.png") no-repeat scroll left top transparent;
+    color: #003647;
+    display: block;
+    font-style: italic;
+    font-weight: 500;
+    height: 25px;
+    line-height: 25px;
+    margin: 18px 0 0 -15px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #B2E9FA;
+    width: 81px;
+}
+.applogo a:hover {
+    background: url("/static/images/appdownload.png") no-repeat scroll 0 -25px transparent;
+    color: #000000;
+}
+.appinfo {
+    float: left;
+    margin-left: 133px;
+    padding: 10px 10px 0 0;
+}
+.appinfo h2, .appitem_detail_top h2 {
+    display: inline;
+}
+.appinfo h2 a, .appitem_detail_top h2 a {
+    color: #F18403;
+    font-size: 18px;
+    text-decoration: none;
+}
+.date {
+    color: #A3A3A3;
+    font-size: 11px;
+    font-style: italic;
+    padding-left: 20px;
+}
+.appdis {
+    color: #8F8D8D;
+    font-size: 12px;
+    font-style: italic;
+    height: 66px;
+    letter-spacing: 0.03em;
+    line-height: 22px;
+    padding-top: 10px;
+}
+.readmore {
+    color: #ED4545;
+    padding: 0 5px;
+    text-decoration: none;
+}
+.readmore:hover {
+    background-color: #ED4545;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.appdetail {
+    margin-top: 10px;
+}
+.appdetail span {
+    margin-right: 17px;
+    padding-left: 25px;
+}
+.appdetail span, .appdetail span a {
+    color: #A4E7FF;
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+.appdetail span a:hover {
+    text-decoration: underline;
+}
+.homepage {
+    background: url("/static/images/appdetail.png") no-repeat scroll left top transparent;
+}
+.appcategory {
+    background: url("/static/images/appdetail.png") no-repeat scroll 0 -20px transparent;
+}
+.views {
+    background: url("/static/images/appdetail.png") no-repeat scroll 0 -38px transparent;
+}
+.vote {
+    left: 620px;
+    position: absolute;
+    top: 122px;
+}
+.appcontent_single {
+    background: url("/static/images/appcontent_single.png") repeat-y scroll 0 0 transparent;
+    margin-top: 20px;
+}
+.appcontent_single_wide {
+    background: url("/static/images/appcontent_single_wide.png") repeat-y scroll 0 0 transparent;
+    margin-top: 20px;
+}
+.appcontent_single_top, .appcontent_single_bottom {
+    background: url("/static/images/appcontent_single_two.png") no-repeat scroll center top transparent;
+    font-size: 0;
+    height: 5px;
+    width: 737px;
+}
+.appcontent_single_top_wide, .appcontent_single_bottom_wide {
+    background: url("/static/images/appcontent_single_two_wide.png") no-repeat scroll center top transparent;
+    font-size: 0;
+    height: 5px;
+    width: 960px;
+}
+.appcontent_single_bottom, .appcontent_single_bottom_wide {
+    background-position: center bottom;
+}
+.appitem_detail_top {
+    background: url("/static/images/appitem_detail_top.png") no-repeat scroll 0 0 transparent;
+    height: 95px;
+    position: relative;
+}
+#applogo_single {
+    left: 30px;
+    top: 20px;
+}
+.app_de_menu {
+    right: 5px !important;
+    top: 0;
+}
+.date_single {
+    bottom: 7px;
+    position: absolute;
+    right: 10px;
+}
+.app_de_title {
+    left: 110px;
+    position: absolute;
+    top: 58px;
+}
+.app_de_content {
+    padding: 0 5px 0 20px;
+}
+.app_de_content p {
+    color: #C3C3C3;
+    font-size: 13px;
+    font-style: normal !important;
+    text-indent: 21px;
+}
+.appdis_single {
+    height: auto !important;
+    margin-bottom: 20px;
+}
+.app_de_content h3, .appcontent h3 {
+    color: #FFFFFF;
+    font-size: 23px;
+    font-style: normal !important;
+    margin: 10px 0;
+}
+.app_de_content h4 {
+    color: #C2FE87;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.app_de_content > ul {
+    list-style: disc outside none;
+    margin-left: 40px;
+}
+.app_de_content > ul li {
+    color: #C3C3C3;
+    margin-bottom: 16px;
+}
+.app_de_changelog {
+    float: left;
+    margin-top: 20px;
+    min-height: 100px;
+    width: 450px;
+}
+.app_de_changelog p {
+    line-height: 1.5;
+    margin-left: 50px;
+    text-indent: 0 !important;
+}
+.changelog_title {
+    font-size: 14px;
+    margin-left: 20px !important;
+}
+.app_de_changelog ul {
+    margin-left: 50px;
+}
+.app_de_changelog ul li a {
+    color: #A4E7FF;
+    line-height: 1.5;
+    text-decoration: none;
+}
+.app_de_changelog ul li a:hover {
+    border-bottom: 1px dotted #A4E7FF;
+}
+.app_de_rating {
+    clear: both;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+#rating_h3 {
+    float: left;
+}
+.source_item {
+    float: none;
+    margin-top: 0 !important;
+    min-height: 10px;
+}
+.source_item ul {
+    color: #C3C3C3;
+}
+.ut_enable {
+    background: url("/static/images/ut_enable.png") no-repeat scroll center bottom transparent;
+    bottom: 0;
+    height: 43px;
+    position: absolute;
+    right: 0;
+    width: 49px;
+}
+.ut_disable {
+    background: url("/static/images/ut_disable.png") no-repeat scroll center bottom transparent;
+    height: 43px;
+    margin-top: 20px;
+    position: relative;
+    width: 737px;
+}
+.border3px {
+    border-radius: 3px 3px 3px 3px;
+}
+.application {
+    background: url("/static/images/cate_application.png") no-repeat scroll 0 0 transparent;
+    height: 123px;
+    margin: 0 auto;
+    position: relative;
+    width: 930px;
+}
+.application_item {
+    float: left;
+    height: 56px;
+    margin-left: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    padding: 7px 0 7px 5px;
+    width: 173px;
+}
+.application_item_hover {
+    background: none repeat scroll 0 0 #444343;
+}
+.application_item img {
+    float: left;
+    height: 48px;
+    margin-right: 10px;
+    width: 48px;
+}
+.application_out h3 {
+    font-size: 18px;
+    padding-left: 25px;
+}
+.application_item a {
+    color: #F18403;
+    font-size: 14px;
+    margin-top: 7px;
+    text-decoration: none;
+}
+.application_item p {
+    margin-top: 12px;
+    text-indent: 0 !important;
+}
+.application_next {
+    position: absolute;
+}
+.cate_more {
+    bottom: 3px;
+    height: 23px;
+    padding-left: 10px;
+    position: absolute;
+    right: 22px;
+}
+.cate_more span {
+    background: url("/static/images/cate_more.png") no-repeat scroll left top transparent;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-style: italic;
+    height: 23px;
+    padding: 3px 10px;
+    position: relative;
+}
+.cate_more_a {
+    background-position: right top !important;
+    padding-left: 0 !important;
+}
+.cate_more_a a {
+    color: #ED4545 !important;
+    font-style: normal;
+}
+.cate_more_a a:hover {
+    text-decoration: none;
+}
+

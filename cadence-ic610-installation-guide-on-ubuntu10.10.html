@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html><head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<title>Answer 42's Blog</title>
+	<meta name="keywords" content="IC Design,Life,Universe,Everything">
+	<meta name="description" content="The answer to life,the universe,and every thing = 42">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <script type="text/javascript" src="js/zh.js"></script>
+	<script src="js/jquery_for_nav.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery_ui_for_nav.js"></script>
+    <script type="text/javascript" src="js/jquery_for_nav_01.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="navi">
+		<ul id="menu">
+			<li id="selected"><a title="42's BLOG" href="./index.html">HOME</a></li>
+			<li><a title="IC DESIGN" href="./icdesign.html">IC DESIGN</a></li>
+			<li><a title="HISTORY" href="./history.html">HISTORY</a></li>
+            <li><a title="LIFE" href="./life.html">LIFE</a></li>
+			<li><a title="ABOUT ME" href="./aboutme.html">ABOUT ME</a></li>
+		 </ul>
+     </div>
+     <div class="divline"></div>
+     <div id="container">
+         <h1>Cadence IC610 Installation Guide on Ubuntu10.10</h1>
+         <h2>Before Installation</h2>
+         <p>Please install these packages before installation.</p>
+         <pre>sudo apt-get install libelf1
+sudo apt-get install ksh
+sudo apt-get install nscd
+sudo apt-get install tcsh
+sudo apt-get install csh
+sudo apt-get install ureadahead</pre>
+         <p>In order to prevent the lack of relevant library file, I installed all packages which name prefix is 'libelf' and 'libso' in "Synaptic". Meanwhile, be sure that sun-jdk has been installed in your system.</p>
+         <h2>Download Installation Packages</h2>
+         <p>Includes IC610 and MMSIM61</p>
+         <p>Base_IC610_lnx86_1of5.tar to Base_IC610_lnx86_5of5.tar</p>
+         <p>Base_MMSIM61_lnx86_1of2.tar and Base_MMSIM61_lnx86_2of2.tar</p>
+         <h2>Extract the Installation Packages</h2>
+         <p>Extract IC610 packages, there will be CDROM1...CDROM5. Besure that they are in the same folder, for example 'IC610_lnx86.Base'.You need to do the same thing for MMSIM61 packages.</p>
+         <h2>Necessary Soft Links</h2>
+         <pre>sudo ln -s /usr/bin/awk /bin/awk
+sudo ln -s /usr/lib/libstdc++-3-libc6.2-2-2.10.0.so /usr/bin/libstdc++-libc6.1-1.so.2
+sudo ln -s /usr/bin/firefox /usr/bin/netscape</pre>
+         <h2>Setup tmp folder</h2>
+         <pre>sudo mkdir /usr/tmp
+sudo chown answer42 /usr/tmp  (replace the answer42 by your system login name, it is same in article later.)
+sudo chmod 755 /usr/tmp</pre>
+         <h2>Downgrade The Tar Version</h2>
+         <p>Download 'tar-1.13.tar.gz': <a href="ftp://ftp.gnu.org/gnu/tar/">Tar</a>. Extract it. Then:</p>
+         <pre>cd tar-1.13
+sudo mkdir -pv /opt/usr/share/tar{bin,sbin}
+./configure --prefix=/opt/usr/share/tar --bindir=/opt/usr/share/tar/bin --sbindir=/opt/usr/share/tar/sbin
+make
+sudo make install
+sudo mv /bin/tar /bin/tar-1.23
+sudo mv /usr/bin/tar /usr/bin/tar-1.23
+ln -sv /opt/usr/share/tar/bin/tar /bin/tar
+ln -sv /opt/usr/share/tar/bin/tar /usr/bin/tar</pre>
+         <p>After all installation is complete. You need to revert to tar-1.23:</p>
+         <pre>rm /opt/usr/tar
+sudo mv /bin/tar-1.23 /bin/tar
+sudo mv /usr/bin/tar-1.23 /usr/bin/tar</pre>
+         <h2>Begin Installation</h2>
+         <p>Setup installation path:</p>
+         <pre>mkdir $HOME/eda
+mkdir $HOME/eda/ic610
+mkdir $HOME/eda/installscape
+mkdir $HOME/eda/mmsim61
+mkdir $HOME/eda/ic610/OA
+chmod -R 777 $HOME/eda</pre>
+         <p>Excute the installation script</p>
+         <pre>cd $HOME/IC610_lnx86.Base/CDROM1
+./SETUP.SH</pre>
+         <p>Will appear:</p>
+         <div class="blockquote">
+         1)</br>
+         ......</br>
+         Cadence Design Systems, Inc</br>
+         555 River Oaks Parkway</br>
+         San Jose, California 95134 USA</br>
+         --More--</div>
+         <p>Press Enter</p>
+         <div class="blockquote">
+         2)</br>
+         Located CDROM at /media/DATA/EDA_TOOLS/IC610_lnx86.Base/CDROM1</br>
+         Specify path of install directory [OR type [RETURN] to exit]:</div>
+         <p>Type in /home/answer42/eda/ic610</br>You have installed 'InstallScape'? : reply n</br>Do you need to install 'InstallScap'? : reply y</br>Type in /home/answer42/eda/installscape</p>
+         <p>Installation interface pops up, select the Candence installation source directory. Next, we do not have 'Automatic Installation Control File', so select 'Manual Installation'.</br>Which directory you want to install ic610, choose /home/answer42/eda/ic610.</br>Ensure the packages you want to install, select all.</p>
+         <h2>Configure OpenAccess</h2>
+         <p>Modify the first two lines of your license.dat:</p>
+         <div class="codes">
+         <div class="code">
+         <pre style="margin-left:2em;">SERVER 'your login name' ANY 5280
+DAEMON cdslmd $CDS_ROOT/tools/bin/cdslmd</pre></div>
+         <pre style="width:2em;" class="line"><a name="L1" href="#L1">1</a>
+<a name="L2" href="#L2">2</a></pre></div>
+         <p>Copy your license.dat to /home/answer42/eda/ic610/share/license , then:</p>
+         <pre>cd /home/answer42/eda/installscape/iscape/bin
+./iscape.sh</pre>
+         <p>Choose 'Configure', select /home/answer32/eda/ic610. Then choose 'Next',check will finished soon.</p>
+         <p>A text-interface pops up:</p>
+         <div class="blockquote">
+         Top level installation directory: (default)</br>
+         Edit license.dat; (default)</br>
+         Override the defaults: (default)</br>
+         Configure license.dat: (default)</br>
+         Configure the client file: (default)</br>
+         Type in /home/answer42/eda/ic610/share/license/license.dat</br>
+         Edit ****'s boot script: (default)</br>
+         Type in root password: ****</br>
+         Start the license server daemons: (default)</br>
+         Choose 2 and quit.</br>
+         Install OA configuration: (default)</br>
+         Type in /home/answer42/eda/ic610/OA</br>
+         OK</div>
+         <h2>Install MMSIM61</h2>
+         <pre>cd /home/answer42/eda/installscape/iscape/bin
+./iscape.sh</pre>
+         <p>Choose 'Install From Archive', type in mmsim61 installation source '/path/to/CD1'</br>Next, we do not have installscape control file, so choose 'I will select products...'</br>Choose mmsim61 target : /home/answer42/eda/mmsim61.</br>Then select all packages.</p>
+         <h2>Cadence Configuration</h2>
+         <pre>ln -s $HOME/eda/mmsim61/tools.lnx86 $HOME/eda/mmsim61/tools
+sudo cp -r $HOME/eda/ic610/tools/dfII/samples/local $HOME/eda/ic610/tools/dfII
+sudo mv $HOME/eda/ic610/tools/dfII/local/cdsinit $HOME/eda/ic610/tools/dfII/local/.cdsinit</pre>
+         <p>Add this lines into your .bashrc</p>
+         <div class="codes">
+         <div class="code">
+         <pre style="margin-left: 2em;">alias lmli='/home/answer42/eda/ic610/tools/bin/lmgrd -c /home/answer42/eda/ic610/share/license/license.dat'
+export OA_HOME=/home/answer42/eda/ic610/OA
+export CDS_ROOT=/home/answer42/eda/ic610
+export MMSIM_ROOT=/home/answer42/eda/mmsim61
+export CDS_LIC_FILE=5280@your_login_name
+export LM_LICENSE_FILE=$CDS_ROOT/share/license/license.dat
+export PATH=$MMSIM_ROOT/tools/bin:$MMSIM_ROOT/tools/specture/bin:$CDS_ROOT/tools/bin:$CDS_ROOT/tools/dfII/bin:$PATH
+export MOZILLA_HOME=/usr/bin/netscape</pre>
+         </div>
+         <pre style="width: 2em;" class="line"><a name="L1" href="#L1">1</a>
+<a name="L2" href="#L2">2</a>
+<a name="L3" href="#L3">3</a>
+<a name="L4" href="#L4">4</a>
+<a name="L5" href="#L5">5</a>
+<a name="L6" href="#L6">6</a>
+<a name="L7" href="#L7">7</a>
+<a name="L8" href="#L8">8</a></pre>
+         </div>
+         <h2>Run Candece</h2>
+         <p>In terminal as user:</p>
+         <pre>lmli</pre>
+         <p>Now you can run Cadence:</p>
+         <pre>icfb &</pre>
+     </div>
+        <div class="toc">
+<ul>
+<li><a href="#toc_1">首页</a></li>
+<ul>
+<li><a href="#toc_1.1">本博客的由来</a></li>
+<li><a href="#toc_1.2">通过本博客你可以</a></li>
+<li><a href="#toc_1.3">如果你想联系</a></li>
+</ul>
+<li><a href="#toc_1.5">IC 设计</a></li>
+<ul>
+<li><a href="#toc_1.6">模拟电子电路</a></li>
+<li><a href="#toc_1.7">高频电子线路</a></li>
+<li><a href="#toc_1.8">模拟CMOS集成电路</a></li>
+</ul>
+<li><a href="#toc_1.9">生活</a></li>
+<ul>
+<li><a href="#toc_1.10">折腾Linux</a></li>
+<li><a href="#toc_1.11">编程开发</a></li>
+<li><a href="#toc_1.12">家</a></li>
+<li><a href="#toc_1.13">学习</a></li>
+<li><a href="#toc_1.14">工作</a></li>
+</ul>
+<li><a href="#toc_1.15">关于我</a></li>
+<ul>
+<li><a href="#toc_1.16">我是谁</a></li>
+<li><a href="#toc_1.17">兴趣</a></li>
+<li><a href="">去哪儿</a></li>
+</ul>
+</ul>
+</ul>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'answer42blog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div id="footer">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn"><img alt="Creative Commons License" style="border-width: 0pt;" src="./img/88x31.png" align="right"></a>本博客采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议</a>.<br>
+    Copyleft © 2011-2012, Power by <a href="">Vim</a>, Theme by Answer42.
+    </p>
+</div>
+
+
+</div>
+	
+	
+	
+	
+	
+	
+
+	
+
+
+<script type="text/javascript">
+    $('#menu').spasticNav();
+</script>
+
+
+</body></html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html><head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<title>Answer 42's Blog</title>
+	<meta name="keywords" content="IC Design,Life,Universe,Everything">
+	<meta name="description" content="The answer to life,the universe,and every thing = 42">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <script type="text/javascript" src="js/zh.js"></script>
+	<script src="js/jquery_for_nav.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery_ui_for_nav.js"></script>
+    <script type="text/javascript" src="js/jquery_for_nav_01.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="navi">
+		<ul id="menu">
+			<li id="selected"><a title="42's BLOG" href="./index.html">HOME</a></li>
+			<li><a title="IC DESIGN" href="./icdesign.html">IC DESIGN</a></li>
+			<li><a title="HISTORY" href="./history.html">HISTORY</a></li>
+            <li><a title="LIFE" href="./life.html">LIFE</a></li>
+			<li><a title="ABOUT ME" href="./aboutme.html">ABOUT ME</a></li>
+		 </ul>
+     </div>
+     <div class="divline"></div>
+     <div id="container">
+         <h1>PyQt4 Installation Guide on Fedora14</h1>
+         <h2>Before Installation</h2>
+         <p>In order to avoid unexpected errors during installation,be sure to install the packages metioned here.This prevents you encounter the same trouble as me.</p>
+         <pre>yum install python-devel
+yum install gcc-c++
+yum install qt-devel
+yum install qt-config
+</pre>
+         <h2>Download Installation Packages</h2>
+         <p>Aaddress:<a href="http://www.riverbankcomputing.co.ck/software/pyqt/download">&nbsp;PyQt4 and SIP</a></p>
+         <p>We need to download two files:Pyqt4 and SIP</p>
+         <h2>Compile and Install SIP</h2>
+         <p>Extract the SIP package and cd into the folder.</p>
+         <pre>python configure.py
+make && make install</pre>
+         <h2>Compile and Install PyQt4</h2>
+         <p>Extarct the PyQt4 package and cd into the folder.</p>
+         <pre>python configure.py -k /usr/lib/qt4/
+make
+ldconfig
+make install</pre>
+         <h2>Tips</h2>
+         <p>1.If you get following error message during Pyqt installation,be sure to install qt-devel and qt-config</p>
+         <div class="blockquote">
+         ERROR:</br>
+         Make sure you have a working Qt v4 qmake on your</br>PATH or use -q argument to explicitly specify a working</br>Qt v4 qmake</div>
+         <p>2.Or you will get this message</p>
+         <div class="blockquote">
+         /usr/bin/ld: cannot find -lqpycore</br>/usr/bin/ld: cannot find -lqpydeclaration</br>/usr/bin/ld: cannot find -lqpygui</br>/usr/bin/ld: cannot find -lqpyopengl</div>
+         <p>Please excute `ldconfig` before make install.</p>
+         <h2>Test Scirpt</h2>
+         <p>After installation,we can use this script to test.</p>
+         <div class="codes">
+         <div class="code">
+         <pre style="margin-left: 2em;">#!/usr/bin/env python
+# -*- coding:utf-8-*-
+import sys
+import from PyQt4.QtGui import *
+class TestWidget(QWidget):
+    def __init__(self):
+        Qwidget.__init__(self,windowTitle=u"A Simple Example for PyQt.")
+        self.outputArea=QTextBrowser(self)
+        self.helloButton=QPushButton(self,trUtf8("hellow(&s)"),self)
+        self.layout().addWidget(self.outputArea)
+        self.layout().addWidget(self.helloButton)
+        self.helloButton.clicked.connect(self.sayHello)
+    
+    def sayHello(self):
+        yourName,okay=QInputDialog.getText(self,self,trUtf8("Your name:"),self.trUtf8(b"name"))
+        if not okay or yourName==u"":
+            self.outputArea.append(self.trUtf8("Hello,new guy!"))
+        else:
+            self.outputArea.append(self.trUtf8("Hello,<\b>%1<\b>.").arg(yourname))
+
+app=QApplication(sys.argv)
+testWidget=TestWidget()
+testWidget.show()
+sys.exit(app.exec_())</pre>
+         </div>
+         <pre style="width: 2em;" class="line"><a name="L1" href="#L1">1</a>
+<a name="L2" href="#L2">2</a>
+<a name="L3" href="#L3">3</a>
+<a name="L4" href="#L4">4</a>
+<a name="L5" href="#L5">5</a>
+<a name="L6" href="#L6">6</a>
+<a name="L7" href="#L7">7</a>
+<a name="L8" href="#L8">8</a>
+<a name="L9" href="#L9">9</a>
+<a name="L10" href="#L10">10</a>
+<a name="L11" href="#L11">11</a>
+<a name="L12" href="#L12">12</a>
+<a name="L13" href="#L13">13</a>
+<a name="L14" href="#L14">14</a>
+<a name="L15" href="#L15">15</a>
+<a name="L16" href="#L16">16</a>
+<a name="L17" href="#L17">17</a>
+<a name="L18" href="#L18">18</a>
+<a name="L19" href="#L19">19</a>
+<a name="L20" href="#L20">20</a>
+<a name="L21" href="#L21">21</a>
+<a name="L22" href="#L22">22</a>
+<a name="L23" href="#L23">23</a>
+<a name="L24" href="#L24">24</a></pre>
+         </div>
+         <p>You need to delete the '\' in '<\b>'</p>
+     </div>
+        <div class="toc">
+<ul>
+<li><a href="#toc_1">首页</a></li>
+<ul>
+<li><a href="#toc_1.1">本博客的由来</a></li>
+<li><a href="#toc_1.2">通过本博客你可以</a></li>
+<li><a href="#toc_1.3">如果你想联系</a></li>
+</ul>
+<li><a href="#toc_1.5">IC 设计</a></li>
+<ul>
+<li><a href="#toc_1.6">模拟电子电路</a></li>
+<li><a href="#toc_1.7">高频电子线路</a></li>
+<li><a href="#toc_1.8">模拟CMOS集成电路</a></li>
+</ul>
+<li><a href="#toc_1.9">生活</a></li>
+<ul>
+<li><a href="#toc_1.10">折腾Linux</a></li>
+<li><a href="#toc_1.11">编程开发</a></li>
+<li><a href="#toc_1.12">家</a></li>
+<li><a href="#toc_1.13">学习</a></li>
+<li><a href="#toc_1.14">工作</a></li>
+</ul>
+<li><a href="#toc_1.15">关于我</a></li>
+<ul>
+<li><a href="#toc_1.16">我是谁</a></li>
+<li><a href="#toc_1.17">兴趣</a></li>
+<li><a href="">去哪儿</a></li>
+</ul>
+</ul>
+</ul>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'answer42blog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div id="footer">
+    <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn"><img alt="Creative Commons License" style="border-width: 0pt;" src="./img/88x31.png" align="right"></a>本博客采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议</a>.<br>
+    Copyleft © 2011-2012, Power by <a href="">Vim</a>, Theme by Answer42.
+    </p>
+</div>
+
+
+</div>
+	
+	
+	
+	
+	
+	
+
+	
+
+
+<script type="text/javascript">
+    $('#menu').spasticNav();
+</script>
+
+
+</body></html>
