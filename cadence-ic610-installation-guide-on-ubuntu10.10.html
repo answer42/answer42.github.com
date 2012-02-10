@@ -93,8 +93,8 @@ chmod -R 777 $HOME/eda</pre>
          <p>Modify the first two lines of your license.dat:</p>
          <div class="codes">
          <div class="code">
-         <pre style="margin-left:2em;">SERVER 'your login name' ANY 5280
-DAEMON cdslmd $CDS_ROOT/tools/bin/cdslmd</pre></div>
+         <pre style="margin-left:2em;">SERVER <span class="Statement">'</span><span class="Constant">your login name</span><span class="Statement">'</span> ANY <span class="Constant">5280</span>
+DAEMON cdslmd <span class="PreProc">$CDS_ROOT</span>/tools/bin/cdslmd</pre></div>
          <pre style="width:2em;" class="line"><a name="L1" href="#L1">1</a>
 <a name="L2" href="#L2">2</a></pre></div>
          <p>Copy your license.dat to /home/answer42/eda/ic610/share/license , then:</p>
@@ -127,14 +127,14 @@ sudo mv $HOME/eda/ic610/tools/dfII/local/cdsinit $HOME/eda/ic610/tools/dfII/loca
          <p>Add this lines into your .bashrc</p>
          <div class="codes">
          <div class="code">
-         <pre style="margin-left: 2em;">alias lmli='/home/answer42/eda/ic610/tools/bin/lmgrd -c /home/answer42/eda/ic610/share/license/license.dat'
-export OA_HOME=/home/answer42/eda/ic610/OA
-export CDS_ROOT=/home/answer42/eda/ic610
-export MMSIM_ROOT=/home/answer42/eda/mmsim61
-export CDS_LIC_FILE=5280@your_login_name
-export LM_LICENSE_FILE=$CDS_ROOT/share/license/license.dat
-export PATH=$MMSIM_ROOT/tools/bin:$MMSIM_ROOT/tools/specture/bin:$CDS_ROOT/tools/bin:$CDS_ROOT/tools/dfII/bin:$PATH
-export MOZILLA_HOME=/usr/bin/netscape</pre>
+         <pre style="margin-left: 2em;">alias <span class="Identifier">lmli</span>=<span class="Statement">'</span><span class="Constant">/home/answer42/eda/ic610/tools/bin/lmgrd -c /home/answer42/eda/ic610/share/license/license.dat</span><span class="Statement">'</span>
+<span class="Statement">export</span><span class="Identifier"> OA_HOME=/home/answer42/eda/ic610/OA</span>
+<span class="Statement">export</span><span class="Identifier"> CDS_ROOT=/home/answer42/eda/ic610</span>
+<span class="Statement">export</span><span class="Identifier"> MMSIM_ROOT=/home/answer42/eda/mmsim61</span>
+<span class="Statement">export</span><span class="Identifier"> CDS_LIC_FILE=5280@your_login_name</span>
+<span class="Statement">export</span><span class="Identifier"> LM_LICENSE_FILE=</span><span class="PreProc">$CDS_ROOT</span><span class="Identifier">/share/license/license.dat</span>
+<span class="Statement">export</span><span class="Identifier"> PATH=</span><span class="PreProc">$MMSIM_ROOT</span><span class="Identifier">/tools/bin:</span><span class="PreProc">$MMSIM_ROOT</span><span class="Identifier">/tools/specture/bin:</span><span class="PreProc">$CDS_ROOT</span><span class="Identifier">/tools/bin:</span><span class="PreProc">$CDS_ROOT</span><span class="Identifier">/tools/dfII/bin:</span><span class="PreProc">$PATH</span>
+<span class="Statement">export</span><span class="Identifier"> MOZILLA_HOME=/usr/bin/netscape</span></pre>
          </div>
          <pre style="width: 2em;" class="line"><a name="L1" href="#L1">1</a>
 <a name="L2" href="#L2">2</a>

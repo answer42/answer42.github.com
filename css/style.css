@@ -234,6 +234,7 @@ div.codes div.code pre{
       font-family:"Courier New"; 
       border:0 none;
       }
+
 div.codes pre.line{ 
      text-align:right; 
      float:left; 
@@ -249,11 +250,19 @@ div.codes pre.line{
      -webkit-border-bottom-left-radius:4px;
      border-radius:4px 0 0 4px;
 }
+.PreProc { color: #a020f0; }
+.Special { color: #6a5acd; }
+.Constant { color: #ff00ff; }
+.Identifier { color: #008b8b; }
+.Statement { color: #a52a2a; font-weight: bold; }
+.Comment { color: #0000ff; }
+
 div.codes pre.line a{ 
     display:inline-block; 
     padding:0 5px; 
     color:#999;
     }
+
 
 code.keyword{font-weight:bold; color:blue;}
 code.string{color:green;}

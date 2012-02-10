@@ -87,17 +87,17 @@ chmod +x altera</pre>
          <p>Then put this lines in altera:</p>
          <div class="codes">
          <div class="code">
-         <pre style="margin-left: 2em;">#!/bin/bash
-export LM_LICENSE_FILE=/opt/altera/licensed.dat
-SOPC_KIT_NIOS2=/opt/altera/nios2eds
-export SOPC_KIT_NIOS2
-SOPC_BUILDER_PATH_91=/opt/altera/nios2eds
-export SOPC_BUILDER_PATH_91
-unset GCC_EXEC_PREFIX
-QUARTUS_ROOTDIR=/opt/altera/quartus
-export QUARTUS_ROOTDIR
-export FERL5LIB=/usr/lib/perl/5.10.1
-bash --rcfile $QUARTUS_ROOTDIR/sopc_builder/bin/nios_bash</pre>
+         <pre style="margin-left: 2em;"><span class="Comment">#!/bin/bash</span>
+<span class="Statement">export</span><span class="Identifier"> LM_LICENSE_FILE=</span>/opt/altera/licensed.dat
+<span class="Identifier">SOPC_KIT_NIOS2</span>=/opt/altera/nios2eds
+<span class="Statement">export</span><span class="Identifier"> SOPC_KIT_NIOS2</span>
+<span class="Identifier">SOPC_BUILDER_PATH_91</span>=/opt/altera/nios2eds
+<span class="Statement">export</span><span class="Identifier"> SOPC_BUILDER_PATH_91</span>
+<span class="Statement">unset</span><span class="Identifier"> GCC_EXEC_PREFIX</span>
+<span class="Identifier">QUARTUS_ROOTDIR</span>=/opt/altera/quartus
+<span class="Statement">export</span><span class="Identifier"> QUARTUS_ROOTDIR</span>
+<span class="Statement">export</span><span class="Identifier"> FERL5LIB=</span>/usr/lib/perl/<span class="Constant">5</span>.<span class="Constant">10</span>.<span class="Constant">1</span>
+bash <span class="Special">--rcfile</span> <span class="PreProc">$QUARTUS_ROOTDIR</span>/sopc_builder/bin/nios_bash</pre>
          </div>
          <pre style="width: 2em;" class="line"><a name="L1" href="#L1">1</a>
 <a name="L2" href="#L2">2</a>
